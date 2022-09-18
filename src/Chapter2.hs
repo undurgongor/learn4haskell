@@ -889,8 +889,9 @@ and reverses it.
   cheating!
 -}
 rewind :: [a] -> [a]
-rewind [] = []
-rewind (x:xs) = rewind xs ++ [x]
+rewind = go [] 
+  where go ys [] = ys
+        go ys (x:xs) = go (x:ys) xs
 
 
 {-
